@@ -30,8 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,7 +45,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\TestAccountController\LogOn.Get\WhenTestingTheAction.cs" />
+    <Compile Include="Controllers\TestAccountController\LogOn.Post\WhenGivenAnInvalidState.cs" />
+    <Compile Include="Controllers\TestAccountController\LogOn.Post\WhenTestingTheAction.cs" />
+    <Compile Include="Controllers\TestAccountController\WhenTestingTheController.cs" />
+    <Compile Include="Exception\TestExceptionHandler\OnException\WhenTestingTheMember.cs" />
+    <Compile Include="Exception\TestExceptionHandler\WhenTestingTheClass.cs" />
+    <Compile Include="Exception\TestExceptionDataProvider\CreateErrorViewData\WhenTestingTheMember.cs" />
+    <Compile Include="Exception\TestExceptionDataProvider\WhenTestingTheClass.cs" />
+    <Compile Include="Filters\TestMvcHandleErrorAttribute\OnException\WhenTestingTheMember.cs" />
+    <Compile Include="Filters\TestMvcHandleErrorAttribute\WhenTestingTheClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Application\FindANewman\FindANewman.csproj">
+      <Project>{4A81941B-89D2-4AF8-A5F2-593756232A0B}</Project>
+      <Name>FindANewman</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Domain\FindANewman.Domain\FindANewman.Domain.csproj">
+      <Project>{94A2FDF5-5C3A-4CB5-850B-59EDBBB5A767}</Project>
+      <Name>FindANewman.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Testing.Common\Testing.Common.csproj">
+      <Project>{AA68576B-50A0-408F-9E7A-1AA6BE05B014}</Project>
+      <Name>Testing.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
