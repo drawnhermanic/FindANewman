@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,7 +50,18 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\..\packages\Castle.Windsor.3.2.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="FluentNHibernate, Version=1.3.0.733, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -142,6 +155,7 @@
     <Compile Include="Installers\ControllerInstaller.cs" />
     <Compile Include="Installers\ErrorHandlerInstaller.cs" />
     <Compile Include="Installers\RepositoryInstaller.cs" />
+    <Compile Include="Installers\SecurityInstaller.cs" />
     <Compile Include="Models\Account\LogOnViewModel.cs" />
     <Compile Include="Models\Exception\ExceptionViewModel.cs" />
     <Compile Include="Models\Exception\IExceptionViewModel.cs" />
@@ -241,6 +255,18 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Database\FindANewman.Database\FindANewman.Database.sqlproj">
+      <Project>{3f5b3670-6f77-4783-97d4-c0a428c0df53}</Project>
+      <Name>FindANewman.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\FindANewman.Common\FindANewman.Common.csproj">
+      <Project>{c92ec397-a13d-4f9d-8783-39821112cb6d}</Project>
+      <Name>FindANewman.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\FindANewman.Data\FindANewman.Data.csproj">
+      <Project>{E2CAEAC3-B04B-4A10-A382-459129E2F4E8}</Project>
+      <Name>FindANewman.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Domain\FindANewman.Domain\FindANewman.Domain.csproj">
       <Project>{94A2FDF5-5C3A-4CB5-850B-59EDBBB5A767}</Project>
       <Name>FindANewman.Domain</Name>
@@ -274,6 +300,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

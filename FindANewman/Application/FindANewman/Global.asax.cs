@@ -1,12 +1,19 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Configuration;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
 using FindANewman.Castle;
+using FindANewman.Domain.Entities;
 using FindANewman.Exception;
 using FindANewman.Filters;
+using FluentNHibernate.Automapping;
+using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
+using NHibernate;
 
 namespace FindANewman
 {

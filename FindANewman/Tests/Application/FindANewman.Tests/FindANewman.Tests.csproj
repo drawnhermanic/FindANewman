@@ -63,6 +63,14 @@
       <Project>{4A81941B-89D2-4AF8-A5F2-593756232A0B}</Project>
       <Name>FindANewman</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Domain\FindANewman.Common\FindANewman.Common.csproj">
+      <Project>{C92EC397-A13D-4F9D-8783-39821112CB6D}</Project>
+      <Name>FindANewman.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Domain\FindANewman.Data\FindANewman.Data.csproj">
+      <Project>{E2CAEAC3-B04B-4A10-A382-459129E2F4E8}</Project>
+      <Name>FindANewman.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Domain\FindANewman.Domain\FindANewman.Domain.csproj">
       <Project>{94A2FDF5-5C3A-4CB5-850B-59EDBBB5A767}</Project>
       <Name>FindANewman.Domain</Name>

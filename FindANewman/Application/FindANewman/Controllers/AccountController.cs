@@ -1,18 +1,21 @@
 ﻿using System.Web.Mvc;
+using FindANewman.Common.Security;
 using FindANewman.Models.Account;
 
 namespace FindANewman.Controllers
 {
     public class AccountController : Controller
     {
-        public AccountController()
+        private readonly IMembershipService _membershipService;
+
+        public AccountController(IMembershipService membershipService)
         {
-            //Use dependency injection here
+            _membershipService = membershipService;
         }
 
         [HttpGet]
         public ActionResult LogOn()
-        {
+        {            
             return View();
         }
 
@@ -22,6 +25,7 @@ namespace FindANewman.Controllers
             if (ModelState.IsValid)
             {
                 //Validate user here and redirect to home page
+                var validationResult = _membershipService.ValidateUser(viewModel.EmailAddress, viewModel.Password);
             }
 
             return View(viewModel);
@@ -32,7 +36,7 @@ namespace FindANewman.Controllers
         //[HttpGet]
         //public ActionResult LogOff()
         //{
-
+        
         //}
 
         //[HttpGet]
